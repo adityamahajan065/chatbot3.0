@@ -58,4 +58,10 @@ function typeWriter(sender, text) {
 
 function clearChat() {
     chatBox.innerHTML = "";
+    const welcomeMessage = document.createElement("div");
+    welcomeMessage.className = "message bot";
+    welcomeMessage.innerText = "👋 Say hello to start chatting!";
+    chatBox.appendChild(welcomeMessage);
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
+
