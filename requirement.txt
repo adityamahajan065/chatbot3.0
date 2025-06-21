@@ -1,0 +1,5 @@
+flask
+gunicorn
+wikipedia
+textblob
+requests
