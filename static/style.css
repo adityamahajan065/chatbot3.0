@@ -1,145 +1,141 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding: 20px;
 }
 
+/* Chat container */
 .chat-container {
-    width: 90%;
-    max-width: 600px;
-    background-color: #1e1e1e;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-    display: flex;
-    flex-direction: column;
+  background: #ffffff;
+  width: 100%;
+  max-width: 500px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  box-sizing: border-box;
 }
 
+/* Title */
 .chat-container h1 {
-    text-align: center;
-    color: #00ffcc;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #333;
 }
 
+/* Chat box */
 .chat-box {
-    flex: 1;
-    background-color: #2a2a2a;
-    border-radius: 8px;
-    padding: 10px;
-    overflow-y: auto;
-    max-height: 400px;
-    margin-bottom: 15px;
-    word-wrap: break-word;
-    white-space: pre-wrap;
-    scroll-behavior: smooth;
+  flex-grow: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fafafa;
+  scroll-behavior: smooth;
 }
 
 .message {
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 8px;
-    max-width: 100%;
-    line-height: 1.5;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  max-width: 85%;
+  line-height: 1.5;
+  font-size: 15px;
+  white-space: pre-wrap;
 }
 
 .message.user {
-    background-color: #3a3f5a;
-    align-self: flex-end;
+  background: #d1eaff;
+  align-self: flex-end;
+  text-align: right;
 }
 
 .message.bot {
-    background-color: #00695c;
-    align-self: flex-start;
+  background: #e2ffe2;
+  align-self: flex-start;
+  text-align: left;
 }
 
+/* Controls */
 .controls {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
 }
 
-input#user-input {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    outline: none;
-    background-color: #333;
-    color: #fff;
+.controls input {
+  flex: 1;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
 }
 
-button {
-    padding: 10px 15px;
-    background-color: #00ffcc;
-    border: none;
-    border-radius: 8px;
-    color: #000;
-    font-weight: bold;
-    cursor: pointer;
+.controls button {
+  padding: 10px 16px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-button:hover {
-    background-color: #00e6b8;
+#send-btn {
+  background-color: #2196f3;
+  color: #fff;
 }
 
-.clear-button {
-    background-color: #ff4c4c;
-    color: white;
-    font-weight: bold;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-bottom: 10px;
+#send-btn:hover {
+  background-color: #1976d2;
 }
 
-.clear-button:hover {
-    background-color: #e64444;
+#clear-btn {
+  background-color: #e91e63;
+  color: #fff;
 }
 
-@media screen and (max-width: 600px) {
-    .chat-container {
-        width: 95%;
-        padding: 15px;
-    }
-
-    input#user-input {
-        font-size: 14px;
-    }
-
-    button {
-        font-size: 14px;
-        padding: 8px 10px;
-    }
+#clear-btn:hover {
+  background-color: #c2185b;
 }
 
-.mini-clear-btn {
-    padding: 0 10px;
-    font-size: 16px;
-    background-color: #555;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    line-height: 1;
-}
-
-.mini-clear-btn:hover {
-    background-color: #777;
-}
+/* Footer */
 .footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
   text-align: center;
-  padding: 8px 0;
-  background-color: #111;  /* match your dark theme */
-  color: #ccc;
   font-size: 14px;
-  border-top: 1px solid #333;
+  color: #777;
+  margin-top: 12px;
 }
 
+/* Responsive fix for very small screens */
+@media screen and (max-width: 400px) {
+  .controls {
+    flex-direction: column;
+  }
+
+  .controls input,
+  .controls button {
+    width: 100%;
+  }
+
+  .controls button {
+    margin-top: 5px;
+  }
+}
